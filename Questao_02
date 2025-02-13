@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void men(int *vetor,int tam){
+    int *menor = &vetor[0];
+    for(int i =0;i<tam-1;i++){
+        if(vetor[i] < *menor){
+            menor = &vetor[i];
+        }
+    }
+    printf("Menor número = %d | Endereço do menor número do vetor = %p",*menor,(void *)menor);
+}
+int main(int argc,char *argv[]){
+    if(argc !=2){
+        printf("Apenas um elemento");
+        return 1;
+    }
+    int tam = atoi(argv[1]);
+    int *vetor = (int *)malloc(tam * sizeof(int));
+    srand(time(NULL));
+    for(int i=0;i<tam;i++){
+        vetor[i] = rand() % 100;
+    }
+    for(int i=0;i<tam;i++){
+        printf("%d ",vetor[i]);
+    }
+    men(vetor,tam);
+    return 0;
+}
