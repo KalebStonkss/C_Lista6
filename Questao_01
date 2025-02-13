@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+void casos(float num1,float num2,int op){
+    switch(op){
+        case 1:
+            printf("Resultado = %.2f",num1 + num2);
+            break;
+        case 2:
+            printf("Resultado = %.2f",num1 * num2);
+            break;
+        default:
+            printf("Input inválido");
+            break;
+    }
+}
+int main(){
+    float num1,num2;
+    float *n1 = &num1;
+    float *n2 = &num2;
+    int op;
+    int *pop = &op;
+    puts("Digite dois valores e a operação que deseja usar entre esses dois valores: ");
+    scanf("%f %f %d",n1,n2,pop);
+    casos(*n1,*n2,*pop);
+    return 0;
+}
